@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Livingdocs Documentation by upfrontIO</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Livingdocs Documentation</h1>
+        <p>Juicy details for developers</p>
+
+        <p class="view"><a href="https://github.com/upfrontIO/livingdocs">View the Project on GitHub <small>upfrontIO/livingdocs</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/upfrontIO/livingdocs/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/upfrontIO/livingdocs/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/upfrontIO/livingdocs">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="livingdocs-documentation" class="anchor" href="#livingdocs-documentation"><span class="octicon octicon-link"></span></a>Livingdocs Documentation</h1>
+
+<h2>
+<a name="concepts" class="anchor" href="#concepts"><span class="octicon octicon-link"></span></a>Concepts</h2>
+
+<h4>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h4>
+
+<p>Livingdocs tries to offer complete control over web content. A livingdocs document consists of HTML, CSS and assets like images and javascripts. Livingdocs only edits HTML with the advance knowledge of the CSS it will be used with. </p>
+
+<h4>
+<a name="design" class="anchor" href="#design"><span class="octicon octicon-link"></span></a>Design</h4>
+
+<p>HTML and CSS always work together. This is the guiding principle for livingdocs when editing HTML. That is why livingdocs always needs to be configured with a <code>livingdocs design</code> before content can be created or edited.</p>
+
+<p>A <code>livingdocs design</code> consists of CSS (and assets required by it) and a set of HTML <code>snippets</code> that can be used togehter with that CSS. Livingdocs will only allow the HTML constructs specified by the <code>snippets</code> to be created.</p>
+
+<h4>
+<a name="document" class="anchor" href="#document"><span class="octicon octicon-link"></span></a>Document</h4>
+
+<p>A livingdocs document is an abstract representation of an HTML document. It is inspired by <a href="http://www.w3.org/TR/components-intro/">web components</a>. In livingdocs the components that can be used are defined in a <code>livingdocs design</code>and are called <code>snippets</code>. Just like the DOM represents a tree of HTML elements a livingdocs <code>document-model</code> represents a tree of <code>snippets</code>.</p>
+
+<p>From the user perspective a <code>livingdocs document</code> is a page with a list of components that can be dragged around, selected, edited and deleted individually.</p>
+
+<h4>
+<a name="how-to-use-it" class="anchor" href="#how-to-use-it"><span class="octicon octicon-link"></span></a>How to use it</h4>
+
+<p>Livingdocs can be used to edit whole pages or only parts of it. It is set up in different components that can be mixed and matched for different integration needs. And in the near future we will offer a service so it can conveniently be used as a standalone product in your browser.</p>
+
+<h2>
+<a name="components" class="anchor" href="#components"><span class="octicon octicon-link"></span></a>Components</h2>
+
+<h4>
+<a name="livingdocs-editor" class="anchor" href="#livingdocs-editor"><span class="octicon octicon-link"></span></a>Livingdocs Editor</h4>
+
+<p>The editor provides a user interface for editing livingdocs documents. It uses the livingdocs engine the same way you can use it if you want to build your own editor. All user interface elements are rendered and managed by the </p>
+
+<h4>
+<a name="livingdocs-engine" class="anchor" href="#livingdocs-engine"><span class="octicon octicon-link"></span></a>Livingdocs Engine</h4>
+
+<p>The engine is the central piece of livingdocs and defines the APIs for defining the document components, interacting with the document and storing the document.</p>
+
+<p>It consists of different parts with their own responsibilities:</p>
+
+<p><strong>Design:</strong></p>
+
+<ul>
+<li>Parse and load document design definitions</li>
+<li>Enforce that documents always comply with their specified design</li>
+</ul><p><strong>Document Model:</strong></p>
+
+<ul>
+<li>Store a representation of the document in JSON</li>
+<li>Offer an API to manipulate that representation</li>
+<li>Notify interested parties of changes of the model</li>
+<li>Store versions on the defined storage</li>
+</ul><p><strong>Interactive Views:</strong></p>
+
+<ul>
+<li>Render a document as HTML that can be interacted with</li>
+<li>Provide help with interaction of that HTML</li>
+</ul><p><strong>Published Views:</strong></p>
+
+<ul>
+<li>Render the final HTML ready for delivery</li>
+<li>Provide information about dependencies of a document (css, javascripts, fonts)</li>
+</ul><h4>
+<a name="editablejs" class="anchor" href="#editablejs"><span class="octicon octicon-link"></span></a>EditableJS</h4>
+
+<p>EditableJS is your friendly contenteditable API. We built it to have full control over text editing and to provide an api that focuses on editing <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#Phrasing_content">phrasing content</a>. EditableJS is designed to be used on a single paragraph or heading element (or any other block level element for that matter). It is used by the livingdocs engine internally in interactive views to let users edit text.</p>
+
+<h4>
+<a name="livingdocs-server" class="anchor" href="#livingdocs-server"><span class="octicon octicon-link"></span></a>Livingdocs Server</h4>
+
+<p>The server is a backend API that offers storage capabilities for livingdocs documents. It also handles image storage and manipulation.</p>
+
+<h4>
+<a name="livingdocs-design" class="anchor" href="#livingdocs-design"><span class="octicon octicon-link"></span></a>Livingdocs Design</h4>
+
+<p>This is a git repository that helps building <code>livingdocs designs</code>. It has a grunt task that can create the files needed to configure the livingdocs engine out of css and html files specifying the allowed html constructs.</p>
+
+<h2>
+<a name="glossary" class="anchor" href="#glossary"><span class="octicon octicon-link"></span></a>Glossary</h2>
+
+<table>
+<thead><tr>
+<th>Term</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>snippet</code></td>
+<td>An HTML component that can be used in a `livingdocs document</td>
+</tr>
+<tr>
+<td><code>livingdocs design</code></td>
+<td>A configuration file – a list of <code>snippets</code> – for the livingdocs engine along with the needed dependencies (css, javascripts, fonts)</td>
+</tr>
+<tr>
+<td><code>document-model</code></td>
+<td>A JSON representation of the content of a <code>livingdocs document</code>
+</td>
+</tr>
+<tr>
+<td><code>livingdocs document</code></td>
+<td>A document consists of a <code>document-model</code> and a <code>livingdocs design</code>
+</td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/upfrontIO">upfrontIO</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
