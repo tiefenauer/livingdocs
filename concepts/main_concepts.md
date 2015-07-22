@@ -14,7 +14,7 @@ For example a component template for a paragraph looks like this:
 </p>
 ```
 
-With that you regain full control over the HTML. This is the guiding principle of Livingdocs. We manage your content. How that content looks and behaves is up to you.
+With that you regain full control over the HTML. This is the guiding principle of Livingdocs. We manage your content. What that content looks like and how it behaves is up to you.
 
 
 ### Work with your content the web way
